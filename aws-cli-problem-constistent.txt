@@ -1,0 +1,98 @@
+ubuntu@ip-100-127-251-117:~$ sudo su -
+root@ip-100-127-251-117:~# cd /tmp/awscli-bundle/
+root@ip-100-127-251-117:/tmp/awscli-bundle#
+root@ip-100-127-251-117:/tmp/awscli-bundle#
+root@ip-100-127-251-117:/tmp/awscli-bundle# aws --version
+aws-cli/1.16.302 Python/2.7.12 Linux/4.4.0-1072-aws botocore/1.13.38
+root@ip-100-127-251-117:/tmp/awscli-bundle# pip list | grep setuptools
+DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+setuptools (42.0.2)
+You are using pip version 9.0.1, however version 20.1.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+root@ip-100-127-251-117:/tmp/awscli-bundle# /usr/local/aws/bin/pip list | grep setuptools
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+setuptools      41.6.0
+setuptools-scm  1.15.7
+root@ip-100-127-251-117:/tmp/awscli-bundle# /tmp/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+Running cmd: /usr/bin/python virtualenv.py --no-download --python /usr/bin/python /usr/local/aws
+Running cmd: /usr/local/aws/bin/pip install --no-binary :all: --no-cache-dir --no-index --find-links file://. setuptools_scm-3.3.3.tar.gz
+Traceback (most recent call last):
+  File "/tmp/awscli-bundle/install", line 218, in <module>
+    main()
+  File "/tmp/awscli-bundle/install", line 200, in main
+    pip_install_packages(opts.install_dir)
+  File "/tmp/awscli-bundle/install", line 134, in pip_install_packages
+    _install_setup_deps(pip_script, '.')
+  File "/tmp/awscli-bundle/install", line 151, in _install_setup_deps
+    pip_script, setup_package_dir, setuptools_scm_tarball))
+  File "/tmp/awscli-bundle/install", line 57, in run
+    p.returncode, cmd, output))
+__main__.BadRCError: Bad rc (1) for cmd '/usr/local/aws/bin/pip install --no-binary :all: --no-cache-dir --no-index --find-links file://. setuptools_scm-3.3.3.tar.gz': Looking in links: file://.
+Processing ./setuptools_scm-3.3.3.tar.gz
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+    ERROR: Command errored out with exit status 1:
+     command: /usr/local/aws/bin/python -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-req-build-qAkPMB/setup.py'"'"'; __file__='"'"'/tmp/pip-req-build-qAkPMB/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-req-build-qAkPMB/pip-egg-info
+         cwd: /tmp/pip-req-build-qAkPMB/
+    Complete output (36 lines):
+    running egg_info
+    creating /tmp/pip-req-build-qAkPMB/pip-egg-info/setuptools_scm.egg-info
+    writing /tmp/pip-req-build-qAkPMB/pip-egg-info/setuptools_scm.egg-info/PKG-INFO
+    writing top-level names to /tmp/pip-req-build-qAkPMB/pip-egg-info/setuptools_scm.egg-info/top_level.txt
+    writing dependency_links to /tmp/pip-req-build-qAkPMB/pip-egg-info/setuptools_scm.egg-info/dependency_links.txt
+    writing entry points to /tmp/pip-req-build-qAkPMB/pip-egg-info/setuptools_scm.egg-info/entry_points.txt
+    writing manifest file '/tmp/pip-req-build-qAkPMB/pip-egg-info/setuptools_scm.egg-info/SOURCES.txt'
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-req-build-qAkPMB/setup.py", line 118, in <module>
+        setuptools.setup(**arguments)
+      File "/usr/local/aws/local/lib/python2.7/site-packages/setuptools/__init__.py", line 145, in setup
+        return distutils.core.setup(**attrs)
+      File "/usr/lib/python2.7/distutils/core.py", line 151, in setup
+        dist.run_commands()
+      File "/usr/lib/python2.7/distutils/dist.py", line 953, in run_commands
+        self.run_command(cmd)
+      File "/usr/lib/python2.7/distutils/dist.py", line 972, in run_command
+        cmd_obj.run()
+      File "/usr/local/aws/local/lib/python2.7/site-packages/setuptools/command/egg_info.py", line 296, in run
+        self.find_sources()
+      File "/usr/local/aws/local/lib/python2.7/site-packages/setuptools/command/egg_info.py", line 303, in find_sources
+        mm.run()
+      File "/usr/local/aws/local/lib/python2.7/site-packages/setuptools/command/egg_info.py", line 534, in run
+        self.add_defaults()
+      File "/usr/local/aws/local/lib/python2.7/site-packages/setuptools/command/egg_info.py", line 574, in add_defaults
+        rcfiles = list(walk_revctrl())
+      File "/usr/local/aws/local/lib/python2.7/site-packages/setuptools/command/sdist.py", line 20, in walk_revctrl
+        for item in ep.load()(dirname):
+      File "/tmp/pip-req-build-qAkPMB/src/setuptools_scm/integration.py", line 22, in find_files
+        command = ep.load()
+      File "/usr/local/aws/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2443, in load
+        return self.resolve()
+      File "/usr/local/aws/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2453, in resolve
+        raise ImportError(str(exc))
+    ImportError: 'module' object has no attribute 'FILES_COMMAND'
+    ----------------------------------------
+ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+
+root@ip-100-127-251-117:/tmp/awscli-bundle# /usr/local/aws/bin/pip list | grep setuptools
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+setuptools      41.6.0
+setuptools-scm  1.15.7
+root@ip-100-127-251-117:/tmp/awscli-bundle# /usr/local/aws/bin/pip uninstall setuptools-scm
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Uninstalling setuptools-scm-1.15.7:
+  Would remove:
+    /usr/local/aws/lib/python2.7/site-packages/setuptools_scm-1.15.7-py2.7.egg-info
+    /usr/local/aws/lib/python2.7/site-packages/setuptools_scm/*
+Proceed (y/n)? y
+  Successfully uninstalled setuptools-scm-1.15.7
+root@ip-100-127-251-117:/tmp/awscli-bundle# /tmp/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+Running cmd: /usr/bin/python virtualenv.py --no-download --python /usr/bin/python /usr/local/aws
+Running cmd: /usr/local/aws/bin/pip install --no-binary :all: --no-cache-dir --no-index --find-links file://. setuptools_scm-3.3.3.tar.gz
+Running cmd: /usr/local/aws/bin/pip install --no-binary :all: --no-cache-dir --no-index --find-links file://. wheel-0.33.6.tar.gz
+Running cmd: /usr/local/aws/bin/pip install --no-binary :all: --no-build-isolation --no-cache-dir --no-index  --find-links file:///tmp/awscli-bundle/packages awscli-1.18.81.tar.gz
+Symlink already exists: /usr/local/bin/aws
+Removing symlink.
+You can now run: /usr/local/bin/aws --version
+root@ip-100-127-251-117:/tmp/awscli-bundle# aws --version
+aws-cli/1.18.81 Python/2.7.12 Linux/4.4.0-1072-aws botocore/1.17.4
+root@ip-100-127-251-117:/tmp/awscli-bundle#
